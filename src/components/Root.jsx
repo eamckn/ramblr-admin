@@ -4,6 +4,7 @@ import AuthContext from "../contexts/authContext";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer.jsx";
 import ServerError from "./ServerError/ServerError";
+import Form from "./Form/Form.jsx";
 
 const Root = () => {
 
@@ -11,7 +12,7 @@ const Root = () => {
     const [postsLoading, setPostsLoading] = useState(true)
     const [postsError, setPostsError] = useState(null)
 
-    const { authLoading, authError } = useContext(AuthContext)
+    const { user, authLoading, authError } = useContext(AuthContext)
 
     const serverError = authError || postsError;
     const loading = authLoading || postsLoading;
@@ -46,11 +47,14 @@ const Root = () => {
                 {loading ? (
                     <div className='loader'></div>
                 ) : (
-                        (serverError)  ? (
+                        (serverError) ? (
                             <ServerError error={serverError}/>
                         ) : (
+                                (!user) ? (
+                                    <Form />
+                                ) : (
                                 <Outlet context={{ postsData, getData }} />
-                        )
+                        ))
                 )}
             </div>
             <Footer />

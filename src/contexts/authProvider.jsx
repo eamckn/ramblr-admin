@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
                 return true
             } else {
                 // This should be probably be displayed onscreen
-                console.error('Invalid user credentials. Please try again.')
+                console.error('Invalid admin credentials. Please try again.')
             }
         } catch (error) {
             setAuthError(error)

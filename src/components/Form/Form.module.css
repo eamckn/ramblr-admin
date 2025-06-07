@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  flex: auto;
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+
+  margin: 0 auto;
+  padding: 2rem;
+
+  background-color: var(--secondary-bg);
+
+  position: relative;
+  top: 15%;
+
+  width: 40%;
+  min-width: 500px;
+  height: min-content;
+
+  animation: animateInBottom;
+  animation-duration: 200ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
+}
+
+.formName {
+  color: var(--primary-color);
+}
+
+.formInput {
+  padding: 1rem;
+
+  width: 100%;
+  height: 2rem;
+
+  font-size: 1.25rem;
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
+
+  border: none;
+}
+
+.formButton {
+  margin: 0 auto;
+  padding: 0.75rem;
+  border: 1px solid transparent;
+
+  width: 40%;
+
+  font-size: 1.25rem;
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out,
+    border 0.25s ease-out;
+}
+
+.formButton:hover {
+  background-color: transparent;
+  border: 1px solid var(--primary-bg);
+  transform: scale(1.1);
+}
+
+@keyframes animateInBottom {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .userForm {
+    width: 80%;
+    min-width: auto;
+  }
+
+  .formButton {
+    border-radius: 0;
+
+    width: 100%;
+  }
+}
