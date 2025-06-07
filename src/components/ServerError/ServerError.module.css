@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  margin: auto;
+  padding: 0 2rem;
+
+  color: var(--secondary-color);
+
+  position: relative;
+}
+
+.frown {
+  position: absolute;
+  top: -4rem;
+
+  max-width: fit-content;
+
+  animation-name: swellAndWiggle;
+  animation-duration: 1s;
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+}
+
+.serverErrorDetails {
+  position: absolute;
+  top: calc(100% + 1rem);
+
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+.showHide {
+  font-style: italic;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--secondary-bg);
+}
+
+@keyframes swellAndWiggle {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.2) rotate(30deg);
+  }
+
+  100% {
+    transform: scale(1.2) rotate(-30deg);
+  }
+}
