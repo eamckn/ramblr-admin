@@ -1,0 +1,31 @@
+#home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 1rem 2rem;
+}
+
+.title {
+  color: var(--secondary-color);
+}
+
+#previewDisplay {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  justify-items: center;
+
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  #home {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  #previewDisplay {
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  }
+}
