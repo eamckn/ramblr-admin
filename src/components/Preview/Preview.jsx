@@ -24,7 +24,7 @@ const Preview = ({ id, title, content, timestamp, commentCount, animationOrder }
     return (
         <div className={styles.preview} style={{ '--animation-order': `${animationOrder}`}}>
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.content}>{contentPreview}</p>
+            <p className={styles.content} dangerouslySetInnerHTML={{__html: contentPreview}} />
             <div className={styles.dateComments}>
                 Posted on {formatDate(timestamp)} • {commentCount} comments
             </div>
