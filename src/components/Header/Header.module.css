@@ -30,64 +30,38 @@ header::after {
   transition: all 0.3s ease-in;
 }
 
-.navLink {
-  font-size: 1.15rem;
-  color: var(--primary-color);
-
-  transition: all 0.3s ease-in;
-}
-
-.title:hover,
-.navLink:hover {
+.title:hover {
   transform: scale(1.1);
   color: var(--secondary-color);
 }
 
-.userOptions {
+.options {
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
-.userMessage {
-  font-size: 1.15rem;
-  color: var(--primary-color);
-}
-
-.logOut {
-  font-size: 1.15rem;
+.header button {
   padding: 0.5rem 1rem;
+  font-size: 1rem;
+
+  background-color: var(--secondary-bg);
   border: 1px solid var(--secondary-bg);
-  border-radius: 10%;
+  color: var(--secondary-color);
 
-  white-space: nowrap;
+  border-radius: 1rem;
 
-  background-color: transparent;
-  color: var(--primary-color);
-  transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+  transition: all 0.3s ease-in;
 }
 
-.logOut:hover {
-  background-color: var(--secondary-bg);
+.header button:hover {
   transform: scale(1.1);
+  color: var(--secondary-bg);
+  background-color: var(--secondary-color);
 }
 
 @media (max-width: 768px) {
   .header {
     padding: 1rem 2rem;
     gap: 2rem;
-  }
-
-  .userMessage,
-  .logOut {
-    font-size: 1rem;
-  }
-
-  .userMessage {
-    max-width: min-content;
-  }
-
-  .logOut {
-    padding: 0.5rem;
   }
 }
