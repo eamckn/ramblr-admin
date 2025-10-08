@@ -94,7 +94,7 @@ const Post = () => {
                         suppressContentEditableWarning={true} />
                     <div className={styles.options}>
                         <button className={styles.save} onClick={handleSaveClick}>Save changes</button>
-                        <button className={styles.published}
+                        <button className={styles.publish}
                             onClick={handlePublishClick}>
                             {postData.isPublished ? 'Unpublish' : 'Publish'}
                         </button>
