@@ -1,0 +1,115 @@
+.postComments {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  margin: 0 auto;
+
+  width: 80%;
+}
+
+.title {
+  padding: 2rem;
+
+  color: var(--secondary-color);
+
+  animation-name: animateInLeft;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
+}
+
+.content {
+  line-height: 1.5rem;
+
+  padding: 2rem;
+  font-size: 1rem;
+  min-height: 100%;
+
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
+
+  animation-name: animateInRight;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
+}
+
+.content:focus {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+}
+
+.options {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.save,
+.publish {
+  padding: 0.5rem 1rem;
+  border: none;
+
+  background-color: var(--secondary-color);
+  color: var(--primary-bg);
+
+  transition: all 0.3s ease-in;
+}
+
+.save:hover,
+.publish:hover {
+  transform: scale(1.1);
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
+}
+
+@keyframes animateInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animateInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .post {
+    gap: 1rem;
+
+    margin: 0;
+    width: 100%;
+  }
+
+  .title {
+    padding: 2rem 1rem;
+  }
+
+  .content {
+    margin: 0 1rem;
+    padding: 1rem;
+  }
+}
