@@ -24,7 +24,7 @@ const NewPost = () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
             const authHeader = 'Bearer ' + token;
-            const response =  await fetch(`http://localhost:8080/posts/drafts`, {
+            const response =  await fetch(`http://localhost:3000/posts/drafts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const NewPost = () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
             const authHeader = 'Bearer ' + token;
-            const response =  await fetch(`http://localhost:8080/posts`, {
+            const response =  await fetch(`http://localhost:3000/posts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

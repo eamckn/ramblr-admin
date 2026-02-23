@@ -35,7 +35,7 @@ const Post = () => {
             }).toString() : new URLSearchParams({
                 publish: 't'
             }).toString();
-            const response = await fetch(`http://localhost:8080/posts/${postData.id}?` + paramString, {
+            const response = await fetch(`http://localhost:3000/posts/${postData.id}?` + paramString, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `${authHeader}`
@@ -56,7 +56,7 @@ const Post = () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
             const authHeader = 'Bearer ' + token;
-            const response = await fetch(`http://localhost:8080/posts/${postData.id}`, {
+            const response = await fetch(`http://localhost:3000/posts/${postData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `${authHeader}`,
