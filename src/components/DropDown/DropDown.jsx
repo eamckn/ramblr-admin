@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from './DropDown.module.css'
 
-const DropDown = ({ selectedVal = 'All', onChange, options }) => {
+const DropDown = ({ selectedVal = '', onChange, options }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
