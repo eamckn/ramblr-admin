@@ -1,0 +1,115 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  overflow-wrap: anywhere;
+
+  padding: 1rem;
+
+  background-color: var(--secondary-bg);
+  color: var(--primary-color);
+
+  animation-name: animateInBottom;
+  animation-duration: 500ms;
+  animation-delay: calc(var(--animation-order) * 100ms);
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in;
+}
+
+.comment:nth-child(even) {
+  background-color: var(--secondary-color);
+  color: var(--secondary-bg);
+}
+
+.info {
+  line-height: 1.5rem;
+}
+
+.username {
+  display: flex;
+  justify-content: space-between;
+}
+
+.username > .button {
+  position: relative;
+}
+
+.button {
+  padding: 0.25rem 1rem;
+
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-bg);
+  color: var(--secondary-bg);
+
+  border-radius: 1rem;
+
+  transition: all 0.3s ease-in;
+}
+
+.comment:nth-child(even) .username > .button {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-color);
+}
+
+.button:hover,
+.comment:nth-child(even) .username > .button:hover {
+  background-color: var(--primary-bg);
+  color: var(--secondary-color);
+}
+
+.confirmDelete {
+  position: absolute;
+  bottom: 125%;
+  left: -50%;
+
+  width: 200%;
+
+  font-size: 0.75rem;
+  background-color: var(--primary-color);
+  color: red;
+  padding: 1rem;
+  border-radius: 4rem;
+  line-height: 1.25rem;
+
+  transform-origin: bottom center;
+  animation: animateDeleteConfirm 200ms ease-in-out;
+}
+
+.confirmDelete > .button {
+  font-size: 0.75rem;
+  background-color: var(--primary-color);
+  border: 1px solid red;
+}
+
+.confirmDelete > .button:hover {
+  background-color: red;
+}
+
+.content {
+  line-height: 1.5rem;
+}
+
+@keyframes animateInBottom {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animateDeleteConfirm {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

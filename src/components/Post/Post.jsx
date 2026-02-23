@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, useOutletContext, useNavigate } from "react-router-dom"
+import Comment from "../Comment/Comment";
 import styles from './Post.module.css'
 
 const Post = () => {
@@ -15,6 +16,8 @@ const Post = () => {
     const [postTitle, setPostTitle] = useState(postData.title)
     const [postContent, setPostContent] = useState(postData.content)
     const [editError, setEditError] = useState(null)
+
+    const [deletingId, setDeletingId] = useState(null)
 
     const handleTitleBlur = (e) => {
         e.preventDefault()
@@ -97,6 +100,19 @@ const Post = () => {
                             {postData.isPublished ? 'Unpublish' : 'Publish'}
                         </button>
                     </div>
+                </div>
+                <div className={styles.commentSection}>
+                    {postData.comments.map((comment, index) => {
+                        return <Comment key={comment.id}
+                            id={comment.id}
+                            postId={postId}
+                        content={comment.content}
+                        timestamp={comment.postedAt}
+                            user={comment.user}
+                            deletingId={deletingId}
+                            setDeletingId={setDeletingId}
+                        animationOrder={index + 1} />
+                })}
                 </div>
             </div>
             {editError && <div className={styles.error}>There was an error trying to make your edits. Please try again.</div>}

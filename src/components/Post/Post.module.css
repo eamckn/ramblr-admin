@@ -63,6 +63,16 @@
   transition: all 0.3s ease-in;
 }
 
+.commentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin: 0 auto;
+
+  width: 60%;
+}
+
 .save:hover,
 .publish:hover {
   transform: scale(1.1);
