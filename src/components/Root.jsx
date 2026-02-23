@@ -42,7 +42,7 @@ const Root = () => {
 
     return (
         <>
-            <Header title={'Ramblr'} />
+            <Header title={'Ramblr admin'} />
             <div id="main">
                 {loading ? (
                     <div className='loader'></div>
