@@ -23,12 +23,11 @@ const NewPost = () => {
     const handleSaveDraftClick = async () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
-            const authHeader = 'Bearer ' + token;
             const response =  await fetch(`http://localhost:3000/posts/drafts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `${authHeader}`
+                    'Authorization': `${token}`
                 },
                 body: JSON.stringify({
                     title: postTitle,
@@ -49,12 +48,11 @@ const NewPost = () => {
     const handleSavePublishClick = async () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
-            const authHeader = 'Bearer ' + token;
             const response =  await fetch(`http://localhost:3000/posts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `${authHeader}`
+                    'Authorization': `${token}`
                 },
                 body: JSON.stringify({
                     title: postTitle,

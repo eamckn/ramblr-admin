@@ -15,10 +15,9 @@ const AuthProvider = ({ children }) => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT')
             if (token) {
-                const authHeader = 'Bearer ' + token;
                 const response = await fetch('http://localhost:3000/admin', {
                     headers: {
-                        'Authorization': `${authHeader}`
+                        'Authorization': `${token}`
                     }
                 })
                 if (response.ok) {
@@ -63,11 +62,10 @@ const AuthProvider = ({ children }) => {
     const logOut = async () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT')
-            const authHeader = 'Bearer ' + token;
             const response = await fetch('http://localhost:3000/log-out', {
                 method: 'POST',
                 headers: {
-                        'Authorization': `${authHeader}`
+                        'Authorization': `${token}`
                     },
             })
             if (response.ok) {

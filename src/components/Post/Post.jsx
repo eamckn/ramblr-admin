@@ -29,7 +29,6 @@ const Post = () => {
     const handlePublishClick = async () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
-            const authHeader = 'Bearer ' + token;
             const paramString = postData.isPublished ? new URLSearchParams({
                 unpublish: 't'
             }).toString() : new URLSearchParams({
@@ -38,7 +37,7 @@ const Post = () => {
             const response = await fetch(`http://localhost:3000/posts/${postData.id}?` + paramString, {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `${authHeader}`
+                    'Authorization': `${token}`
                 },
             })
             if (!response.ok) {
@@ -55,11 +54,10 @@ const Post = () => {
     const handleSaveClick = async () => {
         try {
             const token = localStorage.getItem('ramblrAdminJWT');
-            const authHeader = 'Bearer ' + token;
             const response = await fetch(`http://localhost:3000/posts/${postData.id}`, {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `${authHeader}`,
+                    'Authorization': `${token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
