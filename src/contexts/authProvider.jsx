@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
             const token = localStorage.getItem('ramblrAdminJWT')
             if (token) {
                 const authHeader = 'Bearer ' + token;
-                const response = await fetch('http://localhost:8080/admin', {
+                const response = await fetch('http://localhost:3000/admin', {
                     headers: {
                         'Authorization': `${authHeader}`
                     }
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
 
     const logIn = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:8080/admin', {
+            const response = await fetch('http://localhost:3000/admin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +62,14 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         try {
-            const response = await fetch('http://localhost:8080/log-out')
+            const token = localStorage.getItem('ramblrAdminJWT')
+            const authHeader = 'Bearer ' + token;
+            const response = await fetch('http://localhost:3000/log-out', {
+                method: 'POST',
+                headers: {
+                        'Authorization': `${authHeader}`
+                    },
+            })
             if (response.ok) {
                 setUser(null)
                 localStorage.removeItem('ramblrAdminJWT')
