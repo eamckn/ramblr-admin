@@ -34,10 +34,7 @@ const Root = () => {
         }
 
     useEffect(() => {
-        // Simulate network latency
-        setTimeout(() => {
-            getData()
-        }, 2000);
+        getData()
     }, [])
 
     return (
